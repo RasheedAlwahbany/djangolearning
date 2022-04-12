@@ -5,22 +5,21 @@ This is a [Django](https://docs.djangoproject.com/en/4.0/) project bootstrapped 
 First, you can create and django project as
 
 ```bash
+
 django-admin startproject f_project
 
 ```
 then install pipenv as
 
 ```bash
-pipenv install
 
-python manage.py startapp f_app as
+pipenv install
 
 ```
 
 then create an django app  
 
 ```bash
-pipenv install
 
 python manage.py startapp f_app
 
