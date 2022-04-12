@@ -1,8 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Django](https://docs.djangoproject.com/en/4.0/) project bootstrapped with [`django-admin startproject f_project`]
 
 ## Getting Started
 
-First, run the development server:
+First, you can create and django project as
+
+```bash
+django-admin startproject f_project
+
+```
+then install pipenv as
+
+```bash
+pipenv install
+
+python manage.py startapp f_app as
+
+```
+
+then create an django app  
+
+```bash
+pipenv install
+
+python manage.py startapp f_app
+
+```
+
+Socond, run the development server:
 
 ```bash
 python manage.py runserver
