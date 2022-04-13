@@ -1,8 +1,53 @@
+from pickle import TRUE
 from django.db import models
+from pkg_resources import require
 
 # Create your models here.
-class posts(models.Model):
+
+class Accounts(models.Model):
+    Id=models.AutoField(primary_key=True)
+    uname=models.CharField(max_length=40)
+    #this is when the posts depends on account and the opesite we do this to prevent loop dependency
+    featured_posts=models.ForeignKey('Posts',blank=True, on_delete=models.SET_NULL, null=True,related_name='+')
+    
+    class Meta:
+        db_table='accounts'
+        indexes=[models.Index(fields=['uname'])]
+        
+    
+class Posts(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
+    #this is one to many relationship
+    account_id=models.ForeignKey(Accounts,on_delete=models.CASCADE) 
     def __str__(self):
         return self.title
+    class Meta:
+        db_table='posts'
+    
+    
+class Phones (models.Model):
+    Id=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=40)
+    #this is a many to many relationship
+    account=models.ManyToManyField(Accounts) 
+    
+    class Meta:
+        db_table='phones'
+    
+class Address(models.Model):
+    street=models.CharField(max_length=40)
+    city=models.CharField(max_length=40)
+    state=models.CharField(max_length=40)
+    zip=models.CharField(max_length=40)
+    #this is one to one relationship
+    account_id=models.OneToOneField(Accounts,on_delete=models.CASCADE,primary_key=True) 
+    def __str__(self):
+        return self.street
+    
+    class Meta:
+        db_table='address'
+    
+    
+
+
