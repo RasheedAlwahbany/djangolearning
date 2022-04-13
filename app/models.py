@@ -1,6 +1,5 @@
 from pickle import TRUE
 from django.db import models
-from pkg_resources import require
 
 # Create your models here.
 
@@ -13,7 +12,7 @@ class Accounts(models.Model):
     def __str__(self) -> str:
         return self.uname
     class Meta:
-        db_table='accounts'
+        db_table='Accounts'
         indexes=[models.Index(fields=['uname'])]
         
     
@@ -27,7 +26,7 @@ class Posts(models.Model):
         return self.title
 
     class Meta:
-        db_table='posts'
+        db_table='Posts'
     
     
 class Phones (models.Model):
@@ -39,7 +38,7 @@ class Phones (models.Model):
     def __str__(self) -> str:
         return self.name    
     class Meta:
-        db_table='phones'
+        db_table='Phones'
     
 class Address(models.Model):
     street=models.CharField(max_length=40)
@@ -52,7 +51,7 @@ class Address(models.Model):
     def __str__(self) -> str:
         return self.city
     class Meta:
-        db_table='address'
+        db_table='Address'
     
     
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Phones,Accounts,Address,Posts
-# Register your models here.
+#Register your models here.
 @admin.register(Accounts,Posts,Phones,Address)
 
 class AuthorAdmin(admin.ModelAdmin):

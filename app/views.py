@@ -33,7 +33,8 @@ def getAllPosts(request):
                     # to delete:
                     # posts = Posts.objects.all()
                     # Posts.delete() #or
-                    Posts.objects.filter(pk=request.POST.get('old_title')).delete()
+                    Posts.objects.filter(
+                        pk=request.POST.get('old_title')).delete()
                     post.save()
 
     context = {'posts': post}
