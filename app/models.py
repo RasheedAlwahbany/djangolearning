@@ -52,7 +52,4 @@ class Address(models.Model):
         return self.city
     class Meta:
         db_table='Address'
-    
-    
-
-
+        ordering=['city']
