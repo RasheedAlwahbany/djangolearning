@@ -16,6 +16,12 @@ def getAllPosts(request):
     Returns:
         _type_: _description_
     """
+    # To select data from object
+    # obj = Posts.objects.all().filter(name='122-2022-09-00007')
+    # for o in obj:
+    #     print(o.name)
+    
+    #obj = Posts.objects.all().filter(name='123-2022-09-00007', finance_type='in_refund').first()
     with transaction.atomic():
         if request.method == 'POST':
             if request.POST.get('title') and request.POST.get('body'):
